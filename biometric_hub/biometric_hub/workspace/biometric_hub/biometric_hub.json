@@ -1,0 +1,165 @@
+{
+ "charts": [],
+ "content": "[\n {\n  \"data\": {\n   \"col\": 12,\n   \"text\": \"<span class='h4'>Biometric Hub</span>\"\n  },\n  \"id\": \"bh_hd\",\n  \"type\": \"header\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Shortcuts\",\n   \"col\": 4\n  },\n  \"id\": \"bh_sc\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Operations\",\n   \"col\": 4\n  },\n  \"id\": \"bh_op\",\n  \"type\": \"card\"\n },\n {\n  \"data\": {\n   \"card_name\": \"Configuration\",\n   \"col\": 4\n  },\n  \"id\": \"bh_cf\",\n  \"type\": \"card\"\n }\n]",
+ "creation": "2026-09-01 14:05:17.260671",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "icon": "clock",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Biometric Hub",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Operations",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Biometric Punch",
+   "link_count": 0,
+   "link_to": "Biometric Punch",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Biometric Sync Log",
+   "link_count": 0,
+   "link_to": "Biometric Sync Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Employee Checkin",
+   "link_count": 0,
+   "link_to": "Employee Checkin",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Easy Time Pro Sync",
+   "link_count": 0,
+   "link_to": "Biometric User Sync",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Configuration",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Biometric Device",
+   "link_count": 0,
+   "link_to": "Biometric Device",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Biometric Connector",
+   "link_count": 0,
+   "link_to": "Biometric Connector",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Biometric Enrolment",
+   "link_count": 0,
+   "link_to": "Biometric Enrolment",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Biometric Driver",
+   "link_count": 0,
+   "link_to": "Biometric Driver",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Biometric Settings",
+   "link_count": 0,
+   "link_to": "Biometric Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Employee Device Access",
+   "link_count": 0,
+   "link_to": "Biometric Employee Access",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-10-03 18:15:20.658986",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Hub",
+ "number_cards": [],
+ "owner": "Administrator",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 0.0,
+ "shortcuts": [
+  {
+   "doc_view": "",
+   "label": "Workbench",
+   "link_to": "biometric-workbench",
+   "type": "Page"
+  },
+  {
+   "doc_view": "",
+   "label": "Unmapped Punches",
+   "link_to": "Biometric Punch",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Devices",
+   "link_to": "Biometric Device",
+   "type": "DocType"
+  }
+ ],
+ "title": "Biometric Hub"
+}

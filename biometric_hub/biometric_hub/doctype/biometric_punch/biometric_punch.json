@@ -1,0 +1,264 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-09-01 10:10:15.751256",
+ "description": "Every punch that reached the server, staged before any interpretation. Nothing is dropped.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "punch_key",
+  "status",
+  "device",
+  "device_serial",
+  "cb_p1",
+  "device_user_id",
+  "punch_time",
+  "punch_time_utc",
+  "sb_p2",
+  "raw_log_type",
+  "resolved_log_type",
+  "source",
+  "cb_p2",
+  "connector",
+  "latitude",
+  "longitude",
+  "sb_p3",
+  "employee",
+  "employee_checkin",
+  "error_message",
+  "cb_p3",
+  "attempts",
+  "first_seen",
+  "last_attempt",
+  "sb_p4",
+  "raw_payload"
+ ],
+ "fields": [
+  {
+   "description": "Idempotency key \u2014 a hash of (device serial, device user id, punch time). A replayed punch collides here and is marked Duplicate.",
+   "fieldname": "punch_key",
+   "fieldtype": "Data",
+   "label": "Punch Key",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nMapped\nUnmapped\nBlocked\nDuplicate\nIgnored\nError",
+   "reqd": 1
+  },
+  {
+   "fieldname": "device",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Device",
+   "options": "Biometric Device"
+  },
+  {
+   "description": "What the wire claimed, kept even when no device matches it.",
+   "fieldname": "device_serial",
+   "fieldtype": "Data",
+   "label": "Device Serial",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_p1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "device_user_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Device User ID",
+   "reqd": 1
+  },
+  {
+   "description": "As reported by the device, in the device's own timezone.",
+   "fieldname": "punch_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Punch Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "punch_time_utc",
+   "fieldtype": "Datetime",
+   "label": "Punch Time (UTC)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_p2",
+   "fieldtype": "Section Break",
+   "label": "Interpretation"
+  },
+  {
+   "description": "Whatever the device reported, unaltered.",
+   "fieldname": "raw_log_type",
+   "fieldtype": "Data",
+   "label": "Raw Log Type"
+  },
+  {
+   "fieldname": "resolved_log_type",
+   "fieldtype": "Select",
+   "label": "Resolved Log Type",
+   "options": "\nIN\nOUT",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": "Push\nConnector\nPoll\nCloud\nManual"
+  },
+  {
+   "fieldname": "cb_p2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "connector",
+   "fieldtype": "Link",
+   "label": "Connector",
+   "options": "Biometric Connector"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "sb_p3",
+   "fieldtype": "Section Break",
+   "label": "Result"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_checkin",
+   "fieldtype": "Link",
+   "label": "Employee Checkin",
+   "options": "Employee Checkin",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Error Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_p3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attempts",
+   "fieldtype": "Int",
+   "label": "Attempts",
+   "read_only": 1
+  },
+  {
+   "fieldname": "first_seen",
+   "fieldtype": "Datetime",
+   "label": "First Seen",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_attempt",
+   "fieldtype": "Datetime",
+   "label": "Last Attempt",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_p4",
+   "fieldtype": "Section Break",
+   "label": "Raw"
+  },
+  {
+   "fieldname": "raw_payload",
+   "fieldtype": "Code",
+   "label": "Raw Payload",
+   "options": "JSON",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-02 18:28:16.485352",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Punch",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Integration",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

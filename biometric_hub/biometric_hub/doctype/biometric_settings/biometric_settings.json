@@ -1,0 +1,213 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-09-01 10:10:16.771289",
+ "description": "Global switches for Biometric Hub. Defaults are deliberately conservative.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_g1",
+  "enable_ingestion",
+  "create_employee_checkin",
+  "cb_g1",
+  "default_log_type_policy",
+  "max_future_skew_minutes",
+  "sb_g2",
+  "punch_retention_days",
+  "reconcile_enabled",
+  "cb_g2",
+  "reconcile_lookback_days",
+  "alert_on_silent_device",
+  "sb_g3",
+  "fetch_profiles",
+  "sb_g4",
+  "push_users",
+  "push_connector",
+  "push_remove_on_exit",
+  "cb_g4",
+  "push_area_from",
+  "push_default_area_codes",
+  "push_default_department_code",
+  "push_rules"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_g1",
+   "fieldtype": "Section Break",
+   "label": "Ingestion"
+  },
+  {
+   "default": "1",
+   "description": "Master kill switch. Off means punches are rejected at the door.",
+   "fieldname": "enable_ingestion",
+   "fieldtype": "Check",
+   "label": "Enable Ingestion"
+  },
+  {
+   "default": "1",
+   "description": "Off stages punches without writing to HRMS \u2014 used for a parallel-run cutover.",
+   "fieldname": "create_employee_checkin",
+   "fieldtype": "Check",
+   "label": "Create Employee Checkin"
+  },
+  {
+   "fieldname": "cb_g1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Trust Device",
+   "description": "Used only when the device reports no direction and no fixed log type is set.",
+   "fieldname": "default_log_type_policy",
+   "fieldtype": "Select",
+   "label": "Default Log Type Policy",
+   "options": "Trust Device\nAlternate\nFirst/Last of Day"
+  },
+  {
+   "default": "5",
+   "description": "A punch further in the future than this is an Error, not a checkin. Catches device clock drift.",
+   "fieldname": "max_future_skew_minutes",
+   "fieldtype": "Int",
+   "label": "Max Future Skew (minutes)"
+  },
+  {
+   "fieldname": "sb_g2",
+   "fieldtype": "Section Break",
+   "label": "Housekeeping"
+  },
+  {
+   "default": "180",
+   "description": "Mapped and Duplicate punches older than this are purged nightly. Unmapped and Error are never auto-purged.",
+   "fieldname": "punch_retention_days",
+   "fieldtype": "Int",
+   "label": "Punch Retention (days)"
+  },
+  {
+   "default": "1",
+   "fieldname": "reconcile_enabled",
+   "fieldtype": "Check",
+   "label": "Nightly Reconcile"
+  },
+  {
+   "fieldname": "cb_g2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "3",
+   "fieldname": "reconcile_lookback_days",
+   "fieldtype": "Int",
+   "label": "Reconcile Lookback (days)"
+  },
+  {
+   "default": "1",
+   "fieldname": "alert_on_silent_device",
+   "fieldtype": "Check",
+   "label": "Alert on Silent Device"
+  },
+  {
+   "fieldname": "sb_g3",
+   "fieldtype": "Section Break",
+   "label": "Profiles"
+  },
+  {
+   "default": "0",
+   "description": "When a device ID is set or changed in GroHR, ask the connector agent to send that user's name and photo from the attendance software. Needs agent 0.3.0+ with a database source.",
+   "fieldname": "fetch_profiles",
+   "fieldtype": "Check",
+   "label": "Fetch Profiles from Connector"
+  },
+  {
+   "fieldname": "sb_g4",
+   "fieldtype": "Section Break",
+   "label": "Push Employees to Easy Time Pro"
+  },
+  {
+   "default": "0",
+   "description": "When an active employee gets a biometric ID (or their name/branch changes), the connector agent creates or updates them in Easy Time Pro, which sends them to the machines. Needs agent 0.4.0+ with an `easytime` block in config.json.",
+   "fieldname": "push_users",
+   "fieldtype": "Check",
+   "label": "Push Employees to Easy Time Pro"
+  },
+  {
+   "description": "The agent on the PC that can reach Easy Time Pro.",
+   "fieldname": "push_connector",
+   "fieldtype": "Link",
+   "label": "Connector",
+   "mandatory_depends_on": "eval:doc.push_users",
+   "options": "Biometric Connector"
+  },
+  {
+   "default": "1",
+   "description": "Status Left/Inactive: resign the user in Easy Time Pro, which removes them from the machines.",
+   "fieldname": "push_remove_on_exit",
+   "fieldtype": "Check",
+   "label": "Remove from Machines When Employee Leaves"
+  },
+  {
+   "fieldname": "cb_g4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Branch",
+   "fieldname": "push_area_from",
+   "fieldtype": "Select",
+   "label": "Area From",
+   "options": "Branch\nDepartment\nCompany"
+  },
+  {
+   "description": "Used when no rule matches. Blank: an employee with no matching rule is not pushed.",
+   "fieldname": "push_default_area_codes",
+   "fieldtype": "Data",
+   "label": "Default Area Code(s)"
+  },
+  {
+   "default": "1",
+   "description": "Easy Time Pro department code. '1' is its built-in default department.",
+   "fieldname": "push_default_department_code",
+   "fieldtype": "Data",
+   "label": "Default Department Code"
+  },
+  {
+   "fieldname": "push_rules",
+   "fieldtype": "Table",
+   "label": "Area Rules",
+   "options": "Biometric Area Rule"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-10-03 18:15:18.382750",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Biometric Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

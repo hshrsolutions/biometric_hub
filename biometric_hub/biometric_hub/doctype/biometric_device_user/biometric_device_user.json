@@ -1,0 +1,249 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:device_user_id",
+ "creation": "2026-10-03 14:48:12.011953",
+ "description": "Every user known to the attendance software, with their photo, so HR can confirm which employee each machine ID belongs to.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "device_user_id",
+  "name_on_device",
+  "photo",
+  "cb_du1",
+  "areas",
+  "department_on_device",
+  "has_fingerprint",
+  "has_face",
+  "sb_du2",
+  "compare_html",
+  "employee",
+  "employee_name",
+  "employee_photo",
+  "cb_du2",
+  "match_status",
+  "match_note",
+  "sb_du3",
+  "punches_30d",
+  "cb_du3",
+  "last_punch",
+  "sb_du4",
+  "profile_status",
+  "profile_requested",
+  "cb_du4",
+  "profile_received",
+  "profile_error"
+ ],
+ "fields": [
+  {
+   "fieldname": "device_user_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Device User ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "name_on_device",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name on Device"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "cb_du1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Where the attendance software has this user, as exported from it.",
+   "fieldname": "areas",
+   "fieldtype": "Small Text",
+   "label": "Areas / Machines"
+  },
+  {
+   "fieldname": "department_on_device",
+   "fieldtype": "Data",
+   "label": "Department on Device"
+  },
+  {
+   "fieldname": "has_fingerprint",
+   "fieldtype": "Data",
+   "label": "Fingerprint"
+  },
+  {
+   "fieldname": "has_face",
+   "fieldtype": "Data",
+   "label": "Face"
+  },
+  {
+   "fieldname": "sb_du2",
+   "fieldtype": "Section Break",
+   "label": "Who Is This?"
+  },
+  {
+   "fieldname": "compare_html",
+   "fieldtype": "HTML",
+   "label": "Compare"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.image",
+   "fieldname": "employee_photo",
+   "fieldtype": "Attach Image",
+   "label": "Employee Photo (GroHR)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_du2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Unchecked",
+   "fieldname": "match_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Match Status",
+   "options": "Unchecked\nSuggested\nConfirmed\nNot This Person"
+  },
+  {
+   "fieldname": "match_note",
+   "fieldtype": "Small Text",
+   "label": "Match Note",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_du3",
+   "fieldtype": "Section Break",
+   "label": "Activity"
+  },
+  {
+   "fieldname": "punches_30d",
+   "fieldtype": "Int",
+   "label": "Punches (last 30 days)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_du3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_punch",
+   "fieldtype": "Datetime",
+   "label": "Last Punch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_du4",
+   "fieldtype": "Section Break",
+   "label": "Profile from the Office PC"
+  },
+  {
+   "description": "Requested when the ID changes in GroHR; the connector agent fetches the name and photo from the attendance software on its next check-in.",
+   "fieldname": "profile_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Profile Status",
+   "options": "\nRequested\nReceived\nNot Found\nError",
+   "read_only": 1
+  },
+  {
+   "fieldname": "profile_requested",
+   "fieldtype": "Datetime",
+   "label": "Requested On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_du4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "profile_received",
+   "fieldtype": "Datetime",
+   "label": "Received On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "profile_error",
+   "fieldtype": "Small Text",
+   "label": "Profile Error",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "photo",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-03 15:09:22.233759",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Device User",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name_on_device",
+ "track_changes": 1
+}

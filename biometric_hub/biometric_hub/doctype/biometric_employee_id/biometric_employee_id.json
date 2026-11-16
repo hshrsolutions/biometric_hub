@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-03 15:11:10.595941",
+ "description": "Child table on Employee (custom field bh_biometric_ids): every biometric ID that counts toward this employee's attendance.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "device_user_id",
+  "device",
+  "enrolment"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "description": "The user number the attendance machine has for this person.",
+   "fieldname": "device_user_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Biometric ID",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "description": "Leave blank: the ID counts on every machine. Set it only when this number means this person on that one machine.",
+   "fieldname": "device",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Only on Device",
+   "options": "Biometric Device"
+  },
+  {
+   "columns": 2,
+   "fieldname": "enrolment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Enrolment",
+   "options": "Biometric Enrolment",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-03 15:11:10.595941",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Employee ID",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

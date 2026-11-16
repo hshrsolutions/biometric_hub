@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-09-01 10:10:15.137876",
+ "description": "Maps a device user ID to an Employee. Supersedes Employee.attendance_device_id, which is kept in sync.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "device_user_id",
+  "cb_e1",
+  "device",
+  "enabled",
+  "valid_from",
+  "valid_upto",
+  "sb_e2",
+  "enrolment_key",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "description": "The numeric ID the reader reports for this person, e.g. 1434.",
+   "fieldname": "device_user_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Device User ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_e1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Blank means this ID is valid on every device. A device-specific row wins over a blank one.",
+   "fieldname": "device",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Device",
+   "options": "Biometric Device"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valid From"
+  },
+  {
+   "description": "Set when an ID is re-issued, so past punches stay with the right person.",
+   "fieldname": "valid_upto",
+   "fieldtype": "Date",
+   "label": "Valid Upto"
+  },
+  {
+   "fieldname": "sb_e2",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "description": "Derived uniqueness key for (device_user_id, device).",
+   "fieldname": "enrolment_key",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Enrolment Key",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-01 10:12:03.098500",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Enrolment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "device_user_id",
+ "track_changes": 1
+}

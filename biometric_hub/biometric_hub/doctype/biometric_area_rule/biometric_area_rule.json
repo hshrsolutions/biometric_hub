@@ -1,0 +1,57 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-03 18:15:16.590371",
+ "description": "Child of Biometric Settings: which Easy Time Pro area(s) an employee goes to.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "grohr_value",
+  "area_codes",
+  "department_code"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "description": "A Branch, Department or Company name (whichever Biometric Settings \u2192 Area From says).",
+   "fieldname": "grohr_value",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GroHR Value",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "description": "Comma separated. The employee is put on every machine in these areas.",
+   "fieldname": "area_codes",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Easy Time Pro Area Code(s)",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "description": "Blank: the default department code.",
+   "fieldname": "department_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Easy Time Pro Department Code"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-03 18:15:16.590371",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Area Rule",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

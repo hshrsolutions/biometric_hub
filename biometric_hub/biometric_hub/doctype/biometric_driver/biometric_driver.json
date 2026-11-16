@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:driver_name",
+ "creation": "2026-08-29 11:22:47.479263",
+ "description": "Registry of available device drivers, synced from the biometric_drivers hook on migrate.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "driver_name",
+  "source_app",
+  "python_path",
+  "enabled",
+  "sb_caps",
+  "supports_push",
+  "supports_pull",
+  "supports_realtime",
+  "cb_caps",
+  "supports_clock_sync",
+  "supports_enroll",
+  "driver_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Driver Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "source_app",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source App",
+   "read_only": 1
+  },
+  {
+   "description": "Dotted path to the driver class, registered via the biometric_drivers hook.",
+   "fieldname": "python_path",
+   "fieldtype": "Data",
+   "label": "Python Path",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "sb_caps",
+   "fieldtype": "Section Break",
+   "label": "Capabilities"
+  },
+  {
+   "default": "0",
+   "fieldname": "supports_push",
+   "fieldtype": "Check",
+   "label": "Supports Push",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "supports_pull",
+   "fieldtype": "Check",
+   "label": "Supports Pull",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "supports_realtime",
+   "fieldtype": "Check",
+   "label": "Supports Realtime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_caps",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "supports_clock_sync",
+   "fieldtype": "Check",
+   "label": "Supports Clock Sync",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "supports_enroll",
+   "fieldtype": "Check",
+   "label": "Supports Enrolment Push",
+   "read_only": 1
+  },
+  {
+   "fieldname": "driver_version",
+   "fieldtype": "Data",
+   "label": "Driver Version",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-29 11:22:47.479263",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Driver",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

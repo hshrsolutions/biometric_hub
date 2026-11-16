@@ -1,0 +1,26 @@
+{
+ "content": null,
+ "creation": "2026-09-01 14:05:16.433504",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-09-01 14:05:16.433504",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "biometric-workbench",
+ "owner": "Administrator",
+ "page_name": "biometric-workbench",
+ "roles": [
+  {
+   "role": "Biometric Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Biometric Workbench"
+}

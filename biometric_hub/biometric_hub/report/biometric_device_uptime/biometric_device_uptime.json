@@ -1,0 +1,36 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-09-01 14:23:17.671307",
+ "disable_prepared_report_automation": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-09-01 14:32:21.967322",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Device Uptime",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT d.name AS \"Device:Link/Biometric Device:180\",\n\t\t\t       d.location AS \"Location::150\",\n\t\t\t       d.health_status AS \"Health::100\",\n\t\t\t       d.connectivity_mode AS \"Mode::120\",\n\t\t\t       d.last_contact AS \"Last Contact:Datetime:160\",\n\t\t\t       d.last_punch_time AS \"Last Punch:Datetime:160\",\n\t\t\t       TIMESTAMPDIFF(MINUTE, d.last_contact, NOW()) AS \"Quiet For (min):Int:120\",\n\t\t\t       (SELECT COUNT(*) FROM `tabBiometric Punch` p WHERE p.device = d.name) AS \"Punches:Int:100\"\n\t\t\tFROM `tabBiometric Device` d\n\t\t\tWHERE d.enabled = 1\n\t\t\tORDER BY FIELD(d.health_status, 'Error', 'Silent', 'Unknown', 'Online'), d.name",
+ "ref_doctype": "Biometric Device",
+ "report_name": "Biometric Device Uptime",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Biometric Manager"
+  },
+  {
+   "role": "HR Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

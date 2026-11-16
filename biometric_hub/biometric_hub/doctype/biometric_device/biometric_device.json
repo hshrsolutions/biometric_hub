@@ -1,0 +1,310 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:device_name",
+ "creation": "2026-09-01 10:10:14.444393",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "device_name",
+  "enabled",
+  "driver",
+  "connectivity_mode",
+  "cb_dev1",
+  "serial_no",
+  "location",
+  "device_timezone",
+  "sb_conn",
+  "ip_address",
+  "port",
+  "cb_conn",
+  "comm_key",
+  "connector",
+  "sb_behaviour",
+  "fixed_log_type",
+  "skip_auto_attendance",
+  "cb_behaviour",
+  "ignore_punches_before",
+  "sb_geo",
+  "latitude",
+  "cb_geo",
+  "longitude",
+  "sb_health",
+  "health_status",
+  "last_contact",
+  "last_punch_time",
+  "cb_health",
+  "heartbeat_grace_minutes",
+  "alert_recipients",
+  "last_error",
+  "sb_shifts",
+  "shift_types"
+ ],
+ "fields": [
+  {
+   "fieldname": "device_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Device Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Driver",
+   "options": "Biometric Driver",
+   "reqd": 1
+  },
+  {
+   "default": "Push",
+   "fieldname": "connectivity_mode",
+   "fieldtype": "Select",
+   "label": "Connectivity Mode",
+   "options": "Push\nDirect Poll\nVia Connector\nVendor Cloud",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_dev1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "The SN the device reports. Required for Push mode; the device identifies itself by it.",
+   "fieldname": "serial_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Serial Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location / Branch"
+  },
+  {
+   "description": "Blank = use the site timezone.",
+   "fieldname": "device_timezone",
+   "fieldtype": "Data",
+   "label": "Device Timezone"
+  },
+  {
+   "fieldname": "sb_conn",
+   "fieldtype": "Section Break",
+   "label": "Connection"
+  },
+  {
+   "depends_on": "eval:doc.connectivity_mode!='Push'",
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address"
+  },
+  {
+   "default": "4370",
+   "depends_on": "eval:doc.connectivity_mode!='Push'",
+   "fieldname": "port",
+   "fieldtype": "Int",
+   "label": "Port"
+  },
+  {
+   "fieldname": "cb_conn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.connectivity_mode!='Push'",
+   "fieldname": "comm_key",
+   "fieldtype": "Password",
+   "label": "Communication Key"
+  },
+  {
+   "depends_on": "eval:doc.connectivity_mode=='Via Connector'",
+   "fieldname": "connector",
+   "fieldtype": "Link",
+   "label": "Connector",
+   "options": "Biometric Connector"
+  },
+  {
+   "fieldname": "sb_behaviour",
+   "fieldtype": "Section Break",
+   "label": "Punch Handling"
+  },
+  {
+   "description": "Set only for single-direction readers (a dedicated entry or exit device). Overrides whatever the device reports.",
+   "fieldname": "fixed_log_type",
+   "fieldtype": "Select",
+   "label": "Fixed Log Type",
+   "options": "\nIN\nOUT"
+  },
+  {
+   "default": "0",
+   "fieldname": "skip_auto_attendance",
+   "fieldtype": "Check",
+   "label": "Skip Auto Attendance"
+  },
+  {
+   "fieldname": "cb_behaviour",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Guards against a device dumping years of old logs on first connection.",
+   "fieldname": "ignore_punches_before",
+   "fieldtype": "Datetime",
+   "label": "Ignore Punches Before"
+  },
+  {
+   "fieldname": "sb_geo",
+   "fieldtype": "Section Break",
+   "label": "Geolocation"
+  },
+  {
+   "description": "Passed to Employee Checkin when HRMS 'Allow Geolocation Tracking' is on. Leave blank if unused.",
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "cb_geo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "sb_health",
+   "fieldtype": "Section Break",
+   "label": "Health"
+  },
+  {
+   "default": "Unknown",
+   "fieldname": "health_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Health Status",
+   "options": "Unknown\nOnline\nSilent\nError",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_contact",
+   "fieldtype": "Datetime",
+   "label": "Last Contact",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_punch_time",
+   "fieldtype": "Datetime",
+   "label": "Last Punch Received",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_health",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "60",
+   "description": "Alert if the device has not been heard from for this long. 0 disables the alert.",
+   "fieldname": "heartbeat_grace_minutes",
+   "fieldtype": "Int",
+   "label": "Heartbeat Grace (minutes)"
+  },
+  {
+   "description": "Comma-separated email addresses.",
+   "fieldname": "alert_recipients",
+   "fieldtype": "Small Text",
+   "label": "Alert Recipients"
+  },
+  {
+   "fieldname": "last_error",
+   "fieldtype": "Small Text",
+   "label": "Last Error",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_shifts",
+   "fieldtype": "Section Break",
+   "label": "Shifts Fed by This Device"
+  },
+  {
+   "description": "Which shifts this reader feeds. The server advances Shift Type.last_sync_of_checkin for these once every device in the group has reported \u2014 so the agent never needs write access to an HR master.",
+   "fieldname": "shift_types",
+   "fieldtype": "Table MultiSelect",
+   "label": "Shift Types",
+   "options": "Biometric Device Shift"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-01 14:27:05.920670",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Device",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Integration",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

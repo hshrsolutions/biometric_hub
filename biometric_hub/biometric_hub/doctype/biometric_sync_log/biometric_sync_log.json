@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-09-01 10:10:16.296053",
+ "description": "One row per ingestion batch or poll run. The operational record of whether sync actually ran.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "started",
+  "finished",
+  "source",
+  "cb_s1",
+  "connector",
+  "device",
+  "status",
+  "sb_s2",
+  "received",
+  "mapped",
+  "duplicates",
+  "cb_s2",
+  "unmapped",
+  "errors",
+  "sb_s3",
+  "message",
+  "blocked"
+ ],
+ "fields": [
+  {
+   "fieldname": "started",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Started",
+   "reqd": 1
+  },
+  {
+   "fieldname": "finished",
+   "fieldtype": "Datetime",
+   "label": "Finished"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Source",
+   "options": "Push\nConnector\nPoll\nCloud\nManual"
+  },
+  {
+   "fieldname": "cb_s1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "connector",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Connector",
+   "options": "Biometric Connector"
+  },
+  {
+   "fieldname": "device",
+   "fieldtype": "Link",
+   "label": "Device",
+   "options": "Biometric Device"
+  },
+  {
+   "default": "Success",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Success\nPartial\nFailed"
+  },
+  {
+   "fieldname": "sb_s2",
+   "fieldtype": "Section Break",
+   "label": "Counts"
+  },
+  {
+   "fieldname": "received",
+   "fieldtype": "Int",
+   "label": "Received"
+  },
+  {
+   "fieldname": "mapped",
+   "fieldtype": "Int",
+   "label": "Mapped"
+  },
+  {
+   "fieldname": "duplicates",
+   "fieldtype": "Int",
+   "label": "Duplicates"
+  },
+  {
+   "fieldname": "cb_s2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "unmapped",
+   "fieldtype": "Int",
+   "label": "Unmapped"
+  },
+  {
+   "fieldname": "errors",
+   "fieldtype": "Int",
+   "label": "Errors"
+  },
+  {
+   "fieldname": "sb_s3",
+   "fieldtype": "Section Break",
+   "label": "Message"
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message"
+  },
+  {
+   "description": "Punches from an employee on a device HR has not allowed them to use.",
+   "fieldname": "blocked",
+   "fieldtype": "Int",
+   "label": "Blocked"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-02 18:27:59.224954",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Sync Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

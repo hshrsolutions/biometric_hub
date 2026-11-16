@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:agent_name",
+ "creation": "2026-09-01 10:10:13.108522",
+ "description": "An on-prem connector agent that polls LAN-only devices and submits punches outbound-only.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "agent_name",
+  "enabled",
+  "site_label",
+  "cb_c1",
+  "api_user",
+  "agent_version",
+  "last_checkin",
+  "sb_c2",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "agent_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Agent Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "site_label",
+   "fieldtype": "Data",
+   "label": "Site / Customer Location"
+  },
+  {
+   "fieldname": "cb_c1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "The scoped Biometric Integration user this agent authenticates as.",
+   "fieldname": "api_user",
+   "fieldtype": "Link",
+   "label": "API User",
+   "options": "User"
+  },
+  {
+   "fieldname": "agent_version",
+   "fieldtype": "Data",
+   "label": "Agent Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_checkin",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Last Check-in",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_c2",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-01 10:10:13.108522",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Connector",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Biometric Integration",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

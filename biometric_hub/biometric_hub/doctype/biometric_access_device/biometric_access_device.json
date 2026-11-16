@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-10-02 18:28:00.600305",
+ "description": "Child table: one device an employee is allowed to punch on.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "device",
+  "device_user_id",
+  "enrolment"
+ ],
+ "fields": [
+  {
+   "fieldname": "device",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Device",
+   "options": "Biometric Device",
+   "reqd": 1
+  },
+  {
+   "description": "Only if this machine knows the person by a different ID from their usual one. Leave blank to use the usual ID.",
+   "fieldname": "device_user_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "ID on This Device"
+  },
+  {
+   "description": "The device-specific enrolment kept in step with this row.",
+   "fieldname": "enrolment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Enrolment",
+   "options": "Biometric Enrolment",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-02 18:28:00.600305",
+ "modified_by": "Administrator",
+ "module": "Biometric Hub",
+ "name": "Biometric Access Device",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
